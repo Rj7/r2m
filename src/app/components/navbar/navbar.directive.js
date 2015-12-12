@@ -3,10 +3,10 @@
 
   angular
     .module('road2math')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('abcNavbar', abcNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function abcNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',

@@ -1,34 +1,121 @@
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
 <div class="container">
 
   <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    <abc-navbar creation-date="main.creationDate"></abc-navbar>
   </div>
+  <div class="row" >
+    <div class="col-md-8" >
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
-  </div>
+      <div class="jumbotron text-center" >
+        <!--<div>-->
+          <!--<carousel interval="main.myInterval">-->
+            <!--<slide ng-repeat="slide in main.slides" active="slide.active">-->
+              <!--<img ng-src="{{slide.image}}">-->
+              <!--<div class="carousel-caption">-->
+                <!--<h4>Slide {{$index+1}}</h4>-->
+              <!--</div>-->
+            <!--</slide>-->
+          <!--</carousel>-->
+        <!--</div>-->
+        <h1>'Allo, 'Allo!</h1>
+        <p class="lead">
+          <!--<img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>-->
+          Always a pleasure teaching you math.
+        </p>
+        <p class="animated infinite" ng-class="main.classAnimation">
+          <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
+        </p>
+        <p>
+          With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']">
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
-        </div>
+        </acme-malarkey>
+        </p>
       </div>
     </div>
+    <div class="col-md-4"  >
+
+      <div class=" login_as " ng-show="main.login_as"   >
+
+        <h3><strong style="color: steelblue;" >Sign In </strong> </h3>
+        <hr>
+        <a ng-click="main.mentor_login_display_function()" ><div class="grad btn  ">Mentor</div></a>
+        <a ng-click="main.student_login_display_function()" ><div class="grad btn ">Student</div></a>
+
+        <!--<a ng-click="main.login_display_function()" href="#log-in" class="grad">As Mentor</a><br>-->
+        <!--<a href="#" class="grad">As Student</a><br>-->
+        <hr>
+        <p style="text-align: center">Don't have an <b>account</b>?</p>
+        <a ng-click="main.register_display_function()" href="#register" class="btn btn-link">Sign up Now</a><br>
+
+      </div>
+
+
+      <!--<ul class="login-sign-up nav nav-tabs">-->
+        <!--<li ng-class="{active:main.login_display}" ><a ng-click="main.login_display_function()" href="#log-in" >Login</a></li>-->
+        <!--<li ng-class="{active:main.register_display}" ><a ng-click="main.register_display_function()" href="#register"  >Register Now</a></li>-->
+      <!--</ul>-->
+        <div ng-show="main.mentor_login_display"  id="log-in"  >
+          <form class="form-signin">
+            <h2 class="form-signin-heading">Welcome, </h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <a class="forgot-password" href="#" >Forgot Password?</a>
+            <div class="checkbox remember-me">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
+
+          <a ng-click="main.login_as_display_function()" href="login_as" class="btn btn-sm">back</a>
+        </div>
+
+        <div ng-show="main.student_login_display" >
+
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="25"
+                 aria-valuemin="0" aria-valuemax="100" style="width:25%">
+              25%
+            </div>
+          </div>
+
+          <form class="form-signin" ng-submit="main.student_login_list()" >
+            <h2 class="form-signin-heading">Enter Mentor Username</h2>
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input type="email" id="inputusername" class="form-control" placeholder="Username" required autofocus>
+            <div class="checkbox remember-me">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+
+          </form>
+          <a ng-click="main.login_as_display_function()" href="login_as" class="btn btn-sm">back</a>
+        </div>
+
+        <div ng-show="main.register_display" id="register">
+          <form class="form-signup">
+            <h2 class="form-signup-heading">Register</h2>
+            <label for="registerEmail" class="sr-only">Email address</label>
+            <input type="email" id="registerEmail" class="form-control" placeholder="Email address" required autofocus><br>
+            <label for="first-name" class="sr-only">First Name</label>
+            <input type="text" id="first-name" class="form-control" placeholder="First Name" required><br>
+            <label for="registerPassword" class="sr-only">Password</label>
+            <input type="password" id="registerPassword" class="form-control" placeholder="Password" required><br>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          </form>
+          <a ng-click="main.login_as_display_function()" href="login_as" class="btn btn-sm">back</a>
+        </div>
+
+
+    </div>
+
   </div>
 
 </div>
