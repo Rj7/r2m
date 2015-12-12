@@ -13,12 +13,17 @@
     vm.student_login_display = false;
     vm.register_display = false;
     vm.login_as = true;
+    vm.student_login_list = false;
+    vm.student_password = false;
+
 
     vm.mentor_login_display_function= function() {
       vm.mentor_login_display = true;
       vm.student_login_display = false;
       vm.register_display = false;
       vm.login_as = false;
+      vm.student_login_list = false;
+      vm.student_password = false;
     }
 
     vm.student_login_display_function= function() {
@@ -26,6 +31,8 @@
       vm.student_login_display = true;
       vm.register_display = false;
       vm.login_as = false;
+      vm.student_login_list = false;
+      vm.student_password = false;
     }
 
     vm.register_display_function = function(){
@@ -33,6 +40,8 @@
       vm.student_login_display = false;
       vm.register_display = true;
       vm.login_as = false;
+      vm.student_login_list = false;
+      vm.student_password = false;
     }
 
     vm.login_as_display_function = function(){
@@ -40,15 +49,30 @@
       vm.mentor_login_display = false;
       vm.register_display = false;
       vm.login_as = true;
+      vm.student_login_list = false;
+      vm.student_password = false;
     }
 
-    vm.student_login_list = function(){
+    vm.student_login_list_function = function(){
 
       vm.student_list = ['Raja', 'Suresh'];
+
       vm.mentor_login_display = false;
       vm.student_login_display = false;
-      vm.register_display = true;
+      vm.register_display = false;
       vm.login_as = false;
+      vm.student_login_list = true;
+      vm.student_password = false;
+    }
+
+    vm.student_password_function = function(){
+      console.log("raja");
+      vm.student_login_display = false;
+      vm.mentor_login_display = false;
+      vm.register_display = false;
+      vm.login_as = false;
+      vm.student_login_list = false;
+      vm.student_password = true;
     }
     vm.awesomeThings = [];
     vm.classAnimation = '';

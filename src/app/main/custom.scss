@@ -98,13 +98,13 @@ hr {
   background:steelblue;
   overflow: hidden;
   display: inline-block;
-  border:10px solid #cfdcec;
+  border:1px solid #cfdcec;
   text-align: center;
   color: #EEEEEE;
   font-size: 20px;
   font-weight: 900;
   margin: 10px 10px 10px 10px;
-  line-height:80px;
+  line-height:100px;
   text-shadow:0 1px 0 #666;
   text-decoration:none;
   box-shadow:1px 1px 2px #000;
@@ -116,13 +116,21 @@ hr {
   background-color: transparent;
 }
 
-progress {
-  background-color: lightblue;
-  border: 0;
-  height: 18px;
+.student_list {
+  align-content: center;
+  margin-left: 25%;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+  width: 50%;
+  color: steelblue;
+  background-color: lightsteelblue;
 
 }
 
-progress::-moz-progress-bar { background: steelblue; }
-progress::-webkit-progress-value { background: steelblue; }
+.student_list:hover{
+  color: lightsteelblue;
+  background-color: steelblue;
+}
 
