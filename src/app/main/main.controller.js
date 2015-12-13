@@ -15,6 +15,7 @@
     vm.login_as = true;
     vm.student_login_list = false;
     vm.student_password = false;
+    vm.mentor_types = ['Parent', 'Student']
 
 
     vm.mentor_login_display_function= function() {

@@ -40,7 +40,7 @@
 }
 
 .forgot-password {
-  font-size: small;
+  font-size: medium;
   float: right;
 }
 
@@ -63,9 +63,9 @@ img{
   margin-left:-200px;
 }
 
-.col-md-4 {
-  background: #EEEEEE;
-}
+//.col-md-4 {
+//  background: #EEEEEE;
+//}
 
 .login_as {
   padding-top: 5px;
@@ -134,3 +134,10 @@ hr {
   background-color: steelblue;
 }
 
+.sign-in-col{
+  height: 350px;
+}
+
+.login_in_as{
+  background-color: greenyellow;
+}
