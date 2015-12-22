@@ -36,7 +36,7 @@
       <!--</div>-->
     <!--</div>-->
     <div class="col-md-4"></div>
-    <div class="col-md-4 sign-in-col "  >
+    <div class="col-md-4 sign-in-col " style="background-color: #ebebeb; height: auto" >
 
       <div class=" login_as " ng-show="main.login_as"   >
 
@@ -58,7 +58,7 @@
         <!--<li ng-class="{active:main.login_display}" ><a ng-click="main.login_display_function()" href="#log-in" >Login</a></li>-->
         <!--<li ng-class="{active:main.register_display}" ><a ng-click="main.register_display_function()" href="#register"  >Register Now</a></li>-->
       <!--</ul>-->
-        <div ng-show="main.mentor_login_display" style="background-color: #E2EBF3" id="log-in"  >
+        <div ng-show="main.mentor_login_display" id="mentor-log-in"  >
           <form class="form-signin">
             <h2 class="form-signin-heading"><p style="color: steelblue; text-align: center">Log In</p></h2><br>
             <label for="inputEmail" class="sr-only">Email Address</label>
@@ -71,10 +71,10 @@
                 <input type="checkbox" value="remember-me" > <p style="color: steelblue; font-size: medium " >Remember Me</p>
               </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" style="background-color: #286090" type="submit">Sign In</button>
+            <button ng-click="main.login_mentor()" class="btn btn-lg btn-primary btn-block" style="background-color: #286090" type="submit">Sign In</button>
           </form>
 
-          <a ng-click="main.login_as_display_function()" class="btn btn-default " style="margin-left: 30px; margin-bottom: 20px; color: steelblue" >Back</a>
+          <a ng-click="main.login_as_display_function()" class="btn btn-default back-button " ><i class="glyphicon glyphicon-menu-left" ></i> Back</a>
         </div>
 
         <div ng-show="main.student_login_display" >
@@ -86,8 +86,9 @@
             </div>
           </div>
 
+
           <form class="form-signin" ng-submit="main.student_login_list_function()" >
-            <h2 class="form-signin-heading">Enter Mentor Username</h2>
+            <h2 class="form-signin-heading"> Mentor Username</h2>
             <label for="inputEmail" class="sr-only">Username</label>
             <input type="email" id="inputusername" class="form-control" placeholder="Username" required autofocus>
             <div class="checkbox remember-me">
@@ -98,7 +99,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
 
           </form>
-          <a ng-click="main.login_as_display_function()" class="btn btn-sm">back</a>
+          <a ng-click="main.login_as_display_function()" class="btn btn-default back-button"><i class="glyphicon glyphicon-menu-left" ></i> Back</a>
         </div>
 
         <div ng-show="main.student_login_list" >
@@ -109,12 +110,12 @@
               50%
             </div>
           </div>
-          <h3>Please Select Your Name</h3>
+          <h3>Select Your Name</h3>
           <div ng-repeat="item in main.student_list">
             <a ng-click="main.student_password_function()" class="btn btn-group-justified student_list " >{{item}}</a>
           </div>
 
-          <a ng-click="main.student_login_display_function()" class="btn btn-sm">back</a>
+          <a ng-click="main.student_login_display_function()" class="btn btn-default back-button"><i class="glyphicon glyphicon-menu-left" ></i> Back</a>
         </div>
 
 
@@ -133,30 +134,43 @@
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Enter</button>
           </form>
-          <a ng-click="main.student_login_list_function()" class="btn btn-sm">back</a>
+          <a ng-click="main.student_login_list_function()" class="btn btn-default back-button"><i class="glyphicon glyphicon-menu-left" ></i> Back</a>
         </div>
         <div ng-show="main.register_display" id="register">
           <form class="form-signup">
             <h2 class="form-signup-heading">Register</h2>
+            <br>
             <label for="registerEmail" class="sr-only">Email address</label>
             <input type="text" id="first-name" class="form-control" placeholder="First Name" required><br>
             <input type="text" id="first-name" class="form-control" placeholder="Last Name" required><br>
             <input type="email" id="registerEmail" class="form-control" placeholder="Email address" required autofocus><br>
-            <input type="email" id="registerEmail" class="form-control" placeholder="Phone Number" required autofocus><br>
+            <input type="email" id="registerEmail" class="form-control" placeholder="Phone Number"><br>
             <label for="first-name" class="sr-only">First Name</label>
             <!--<input type="text" id="first-name" class="form-control" placeholder="First Name" required><br>-->
             <label for="registerPassword" class="sr-only">Password</label>
             <input type="password" id="registerPassword" class="form-control" placeholder="Password" required><br>
             <input type="password" id="registerPassword" class="form-control" placeholder="Re enter Password" required><br>
-            <label>Mentor Type</label>
-            <md-select>
-              <md-option ng-repeat="mentor_type in main.mentor_types" value="{{mentor_type}}">
+            <label>Mentor Type:</label>
+            <select ng-model="filterCondition.operator" style="float:right;
+    clear:both;" >
+              <option ng-repeat="mentor_type in main.mentor_types" value="{{mentor_type}}" style="width: 150px;"  >
                 {{mentor_type}}
-              </md-option>
-            </md-select>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+              </option>
+            </select>
+
+
+            <!--<md-select>-->
+              <!--<md-option ng-repeat="mentor_type in main.mentor_types" value="{{mentor_type}}"  >-->
+                <!--<button type="button" class="btn btn-default" style="color: steelblue; margin-left: 50px " >-->
+                  <!--{{mentor_type}}-->
+                <!--</button>-->
+              <!--</md-option>-->
+            <!--</md-select>-->
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 20px" >Register</button>
           </form>
-          <a ng-click="main.login_as_display_function()" class="btn btn-sm">back</a>
+          <br>
+          <a ng-click="main.login_as_display_function()" class="btn btn-default back-button"><i class="glyphicon glyphicon-menu-left" ></i> Back</a>
         </div>
 
 

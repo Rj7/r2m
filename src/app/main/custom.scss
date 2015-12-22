@@ -124,14 +124,14 @@ hr {
   font-weight: 900;
   text-align: center;
   width: 50%;
-  color: steelblue;
-  background-color: lightsteelblue;
+  color: whitesmoke;
+  background-color: steelblue ;
 
 }
 
 .student_list:hover{
-  color: lightsteelblue;
-  background-color: steelblue;
+  color: steelblue;
+  background-color: whitesmoke;
 }
 
 .sign-in-col{
@@ -140,4 +140,11 @@ hr {
 
 .login_in_as{
   background-color: greenyellow;
+}
+
+.back-button{
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: steelblue
 }
